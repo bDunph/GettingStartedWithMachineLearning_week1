@@ -34,7 +34,6 @@ public:
 	bool isRunning;
 	bool isEmpty;
 	double label;
-	int estimatedLabel;
 
 	/* Video as input data */
 	ofVideoGrabber vidGrabber;

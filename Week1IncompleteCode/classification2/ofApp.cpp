@@ -145,32 +145,34 @@ void ofApp::audioOut(ofSoundBuffer& output)
         if (lastCount != currentCount)
         {//if we have a new timer int this sample, play the sound
             //This is a 16-step step sequencer based on Mike Z's ofxRapidLib example 
+
+            /* use the knn output label to trigger samples */
             switch (playHead % 16)
             {
             case 1:
                 kick.trigger();
                 break;
             case 5:
-                if (estimatedLabel == 3 || estimatedLabel == 2) floorTom.trigger();
+                if ( == 3 ||  == 2) floorTom.trigger();
                 break;
             case 7:
-                if (estimatedLabel == 1) rackTom.trigger();
+                if ( == 1) rackTom.trigger();
                 break;
             case 9:
-                if (estimatedLabel == 1) {
+                if ( == 1) {
                     rim.trigger();
                 }
                 break;
             case 11:
-                if (estimatedLabel == 2) {
+                if ( == 2) {
                     bigRackTom.trigger();
                 }
                 break;
             case 13:
-                if (estimatedLabel == 3) smallRackTom.trigger();
+                if ( == 3) smallRackTom.trigger();
                 break;
             case 15:
-                if (estimatedLabel == 2) rimClick.trigger();
+                if ( == 2) rimClick.trigger();
             }
 
             ++playHead;//iterate the playhead
